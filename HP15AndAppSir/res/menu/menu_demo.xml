@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.hp15andapp.MenuDemo" >
+
+    <item android:id="@+id/omi1" android:title="Setting"/>
+    <item android:id="@+id/omi2" 
+        android:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:title="Camera"/>
+    <item android:id="@+id/omi3" android:title="Refresh"/>
+    <item android:id="@+id/omi4" android:title="Exit"/>
+    
+
+</menu>

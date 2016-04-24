@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <CheckBoxPreference 
+        android:key="t9"
+        android:title="T9 DICTIONARY"
+        android:summaryOn="T9 dict is ON"
+        android:summaryOff="T9 dict is off"
+        />
+    
+    <CheckBoxPreference 
+        android:key="welcomechoice"
+        android:title="WELCOME MESSAGE"
+        android:summary="Show welcome message on startup."
+        />
+
+    <ListPreference 
+        android:key="bgcolor"
+        android:title="SELECT COLOR"
+        android:summary="Choose color for app background"
+        android:entries="@array/color_array"
+        android:entryValues="@array/color_array"
+        />
+</PreferenceScreen>

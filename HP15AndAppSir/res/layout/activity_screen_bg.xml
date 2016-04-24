@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/myscreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.hp15andapp.ScreenBG" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="RADIO BUTTON DEMO"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="26dp"
+        android:text="# SELECT COLOR FOR BG "
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <RadioGroup
+        android:id="@+id/sbgrg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="30dp" >
+
+        <RadioButton
+            android:id="@+id/sbgr1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RED" />
+
+        <RadioButton
+            android:id="@+id/sbgr2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CYAN" />
+
+        <RadioButton
+            android:id="@+id/sbgr3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GRAY" />
+        
+        <RadioButton
+            android:id="@+id/sbgr4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GREEN" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/sbgb1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sbgrg"
+        android:layout_below="@+id/sbgrg"
+        android:layout_marginTop="26dp"
+        android:text="SET BG" />
+
+    <Button
+        android:id="@+id/sbgb2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/sbgb1"
+        android:layout_alignBottom="@+id/sbgb1"
+        android:layout_alignRight="@+id/textView1"
+        android:text="RESET" />
+
+</RelativeLayout>
