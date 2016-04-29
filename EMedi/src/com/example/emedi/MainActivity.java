@@ -18,17 +18,30 @@ public class MainActivity extends Activity {
 	
 	EditText usrname, pswrd;
 	Context CTX = this;
+	String user_name,user_pass;
+	
+	public static final String PREFS_NAME = "LoginPrefs";
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		SharedPreferences set = getSharedPreferences(PREFS_NAME, 0);
+        if (set.getString("logged", "").toString().equals("logged")) 
+        {
+        	Intent i = new Intent(this,DrawerOptions.class);
+			startActivity(i);
+        }
+		
 		SharedPreferences settings = getSharedPreferences("prefs", 0);
         boolean firstRun = settings.getBoolean("firstRun", true);
         if ( firstRun )
         {
         	Intent i = new Intent(this,SplashPage.class);
             startActivityForResult(i, 10);
+            Toast.makeText(getBaseContext(), "Please click back to continue", Toast.LENGTH_LONG).show();
         }
         usrname = (EditText)findViewById(R.id.username);
     	pswrd = (EditText)findViewById(R.id.password);
@@ -41,19 +54,36 @@ public class MainActivity extends Activity {
 		CR.moveToFirst();
 		boolean loginstatus = false;
 		String NAME = "";
+		user_name = usrname.getText().toString();
+		user_pass = pswrd.getText().toString();
 		do
 		{
+			if(user_name.length()==0 || user_pass.length()==0){
+				Toast.makeText(getBaseContext(), "Blank fields are not allowed", Toast.LENGTH_SHORT).show();
+			}
+			else{
 			if((usrname.getText().toString()).equals(CR.getString(0)) && (pswrd.getText().toString()).equals(CR.getString(1)))
 			{
 				loginstatus = true;
 				NAME = CR.getString(0);
 			}
+			}
 		}while(CR.moveToNext());
 		if(loginstatus)
 		{
-			Toast.makeText(this, "Login Successfull!!!", Toast.LENGTH_SHORT).show();
-			Intent i = new Intent(this,ListOptions.class);
+			
+			SharedPreferences set = getSharedPreferences(PREFS_NAME, 0);
+            SharedPreferences.Editor editor = set.edit();
+            editor.putString("logged", "logged");
+            editor.commit();
+            
+			Toast.makeText(this, "Login Successfull", Toast.LENGTH_SHORT).show();
+			Intent i = new Intent(this,DrawerOptions.class);
 			startActivity(i);
+			
+			usrname.setText("");
+            pswrd.setText("");
+            finish();
 		}
 		else
 		{

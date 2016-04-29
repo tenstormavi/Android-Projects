@@ -36,9 +36,13 @@ public class Signup extends Activity {
 		    user_pass = USER_PASS.getText().toString();
 		    con_pass = CON_PASS.getText().toString();
 		    
+		    if(user_name.length()==0 || user_pass.length()==0 || con_pass.length()==0){
+		    	Toast.makeText(getBaseContext(), "Blank fields are not allowed", Toast.LENGTH_SHORT).show();
+		    }
+		    else{
 		    if(!(user_pass.equals(con_pass)))
 		    {
-		    	Toast.makeText(getBaseContext(), "Passwords are not Matching.", Toast.LENGTH_LONG).show();
+		    	Toast.makeText(getBaseContext(), "Passwords are not Matching", Toast.LENGTH_SHORT).show();
 		    	USER_PASS.setText("");
 		    	CON_PASS.setText("");
 		    }
@@ -46,8 +50,10 @@ public class Signup extends Activity {
 		    {
 		    	DatabaseOperations DB = new DatabaseOperations(ctx);
 		    	DB.putInformation(DB, user_name, user_pass);
-		    	Toast.makeText(getBaseContext(), "Registration Succesfull!!!", Toast.LENGTH_LONG).show();
+		    	Toast.makeText(getBaseContext(), "Registration Succesfull", Toast.LENGTH_SHORT).show();
+		    	Toast.makeText(getBaseContext(), "Please login to continue", Toast.LENGTH_SHORT).show();
 		    	finish();
+		    }
 		    }
 				
 			}
